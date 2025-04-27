@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="=en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kalkulator</title> 
+    <style>
+        .window {
+            display: flex; /*mozliwość przesuwania elementów względem osi*/
+            justify-content: center; /* centrowanie tabeli*/
+            padding: 25px; /* marginesy*/
+            gap: 50px; /*ogległość elementów w środku kontenera*/
+            max-height:380px;
+            
+            
+        }
+ 
+        .border{
+            display: block;
+            border: 3px solid black;
+            padding: 10px;
+            width: 150px;
+            text-align: center;
+            overflow: auto;
+           
+        }
+        .grid-container  {
+            display: inline-grid; /*definicja tabeli z obwódką*/
+            grid-template-columns: auto auto auto auto;/*4 kolumny*/
+            grid-template-rows: auto auto auto auto auto auto;/*6 wierszy*/
+            gap: 10px; /*odległość między elementami*/
+           
+            border: 3px solid black;
+            padding: 10px;
+            background-color: lightgray;  
+        }
+        .buttonStyle{
+            width: 50px;
+            height: 50px;
+            border-color:  #38598b;
+            background-color: #e7eaf6;
+            font-size: large;
+        }
+        .textStyle {
+            height: 50px;
+            width: 230px;
+            border-color: #113f67;
+            grid-column: span 4; /*zajmuhe 4 kolumny*/
+            resize: none;
+            text-align: right;
+            font-size: x-large;
+            line-height:50px;
+        }
+      
+    </style>
+    <script>
+        function gen()
+        {
+            const main=document.getElementById("main")
+            const storage=document.createElement("text")
+            storage.setAttribute("id","storage")
+            storage.value=""
+            document.body.appendChild(storage)
+
+            /*const text= document.createElement('input');
+            text.setAttribute('type', 'text');*/
+
+            const text=document.createElement("textarea")
+            text.setAttribute("id","text")
+            text.classList.add("textStyle")
+            main.appendChild(text)
+            createButton(6,2,0)
+            let n=1;
+            for(let i=5;i>2;i--)
+            {
+                for(let j=1;j<4;j++)
+                {
+                    createButton(i,j,n)
+                    n++
+                    
+                }
+            }
+            createButton(6,1,".")
+            createButton(6,3,"=")
+            createButton(6,4,"+")
+            createButton(5,4,"-")
+            createButton(4,4,"*")
+            createButton(3,4,"/")
+            createButton(2,1,"C")
+            createButton(2,3,"<-")
+
+            const bC=document.getElementById("bC")
+            bC.style.gridColumn="span 2"
+            bC.style.width="110px" 
+            bC.onclick=clear      
+     
+
+            const b2=document.getElementById("b<-")
+            b2.style.gridColumn="span 2"
+            b2.style.width="110px"
+        }
+... (196 lines left)
+Collapse
+kalkulator.html
+10 KB
+﻿
+Popsonikk
+popsonikk
+ 
+<!DOCTYPE html>
+<html lang="=en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kalkulator</title> 
+    <style>
+        .window {
+            display: flex; /*mozliwość przesuwania elementów względem osi*/
+            justify-content: center; /* centrowanie tabeli*/
+            padding: 25px; /* marginesy*/
+            gap: 50px; /*ogległość elementów w środku kontenera*/
+            max-height:380px;
+            
+            
+        }
+ 
+        .border{
+            display: block;
+            border: 3px solid black;
+            padding: 10px;
+            width: 150px;
+            text-align: center;
+            overflow: auto;
+           
+        }
+        .grid-container  {
+            display: inline-grid; /*definicja tabeli z obwódką*/
+            grid-template-columns: auto auto auto auto;/*4 kolumny*/
+            grid-template-rows: auto auto auto auto auto auto;/*6 wierszy*/
+            gap: 10px; /*odległość między elementami*/
+           
+            border: 3px solid black;
+            padding: 10px;
+            background-color: lightgray;  
+        }
+        .buttonStyle{
+            width: 50px;
+            height: 50px;
+            border-color:  #38598b;
+            background-color: #e7eaf6;
+            font-size: large;
+        }
+        .textStyle {
+            height: 50px;
+            width: 230px;
+            border-color: #113f67;
+            grid-column: span 4; /*zajmuhe 4 kolumny*/
+            resize: none;
+            text-align: right;
+            font-size: x-large;
+            line-height:50px;
+        }
+      
+    </style>
+    <script>
+        function gen()
+        {
+            const main=document.getElementById("main")
+            const storage=document.createElement("text")
+            storage.setAttribute("id","storage")
+            storage.value=""
+            document.body.appendChild(storage)
+
+            /*const text= document.createElement('input');
+            text.setAttribute('type', 'text');*/
+
+            const text=document.createElement("textarea")
+            text.setAttribute("id","text")
+            text.classList.add("textStyle")
+            main.appendChild(text)
+            createButton(6,2,0)
+            let n=1;
+            for(let i=5;i>2;i--)
+            {
+                for(let j=1;j<4;j++)
+                {
+                    createButton(i,j,n)
+                    n++
+                    
+                }
+            }
+            createButton(6,1,".")
+            createButton(6,3,"=")
+            createButton(6,4,"+")
+            createButton(5,4,"-")
+            createButton(4,4,"*")
+            createButton(3,4,"/")
+            createButton(2,1,"C")
+            createButton(2,3,"<-")
+
+            const bC=document.getElementById("bC")
+            bC.style.gridColumn="span 2"
+            bC.style.width="110px" 
+            bC.onclick=clear      
+     
+
+            const b2=document.getElementById("b<-")
+            b2.style.gridColumn="span 2"
+            b2.style.width="110px"
+            b2.onclick=deleteOne
+           
+            const bplus=document.getElementById("b+")
+            bplus.onclick=  function(){
+                doMath("+");
+            };
+
+            const bm=document.getElementById("b-")
+            bm.onclick=  function(){
+                doMath("-");
+            };
+
+            const br=document.getElementById("b*")
+            br.onclick=  function(){
+                doMath("*");
+            };
+
+            const bd=document.getElementById("b/")
+            bd.onclick=  function(){
+                doMath("/");
+            };
+            const be=document.getElementById("b=")
+            be.onclick=eq
+                   
+        }
+        function setValue()
+        {
+            const text=document.getElementById("text")
+            const s=document.getElementById("storage")
+
+            
+            const str=text.value
+            if(str==""&&this.dataset.value==".")
+            {
+                addToLog("błędny znak")
+                return
+            }
+            else if(s.value=="=")
+            {
+                s.value=""
+                text.value=this.dataset.value 
+                return
+            }
+            text.value=str+this.dataset.value    
+        }
+        function clear()
+        {
+            const text=document.getElementById("text")
+            const s=document.getElementById("storage")
+            text.value=""   
+            s.value=""  
+            addToLog("clear") 
+        }
+        function deleteOne()
+        {
+            const text=document.getElementById("text")
+            const s=text.value
+            text.value=s.substring(0,s.length-1)
+        }
+        function doMath(symbol)
+        {
+            
+            const text=document.getElementById("text")
+            const s=document.getElementById("storage")
+            if(s.value=="=")
+            {
+                s.value=""
+            }
+            if(text.value==""&&s.value=="")
+            {
+                addToLog("brak liczb dla "+symbol)
+            }
+            else if(text.value==""&&s.value!="")
+            {
+                addToLog("niepoprawna warość buforu")
+            }
+            else if(text.value!=""&&s.value=="")
+            {
+                
+                const x=text.value;
+                text.value="";
+                const str=x+symbol;
+                s.value=str;
+                addToLog(str)
+            }
+            else
+            {
+                
+                const x=parseFloat(text.value);
+                const y=parseFloat(s.value.substring(0,s.value.length-1))
+                var log=""
+                if(symbol=="+")
+                {
+                    const res=x+y;
+                    log=res+symbol
+                }
+                else if(symbol=="-")
+                {
+                    const res=y-x;
+                    log=res+symbol
+                }
+                else if(symbol=="*")
+                {
+                    const res=x*y;
+                    log=res+symbol
+                }
+                else if(symbol=="/")
+                {
+                    const res=y/x;
+                    log=res+symbol
+                }
+                else
+                {
+                    log="błędny symbol"
+                }
+                text.value="";
+                s.value=log;
+                addToLog(log)
+            }   
+        }
+        function eq()
+        {
+            const text=document.getElementById("text")
+            const s=document.getElementById("storage")
+            if (text.value!=""&&s.value!="")
+            {
+                const x=parseFloat(text.value);
+                const y=parseFloat(s.value.substring(0,s.value.length-1))
+                const symbol=s.value.substring(s.value.length-1,s.value.length)
+                var log=""
+                var res=0
+                if(symbol=="+")
+                {
+                    res=x+y;
+                    log="="+res
+                }
+                else if(symbol=="-")
+                {
+                    res=y-x;
+                    log="="+res
+                }
+                else if(symbol=="*")
+                {
+                    res=x*y;
+                    log="="+res
+                }
+                else if(symbol=="/")
+                {
+                    res=y/x;
+                    log="="+res
+                }
+                else
+                {
+                    log="błędny symbol"
+                }
+                text.value=res;
+                s.value="=";
+                addToLog(log)
+            }
+            else
+            {
+                addToLog("nie podałeś liczb")
+            }
+        }
+        function createButton(x,  y , n)
+        {
+            const main=document.getElementById("main")
+            const button= document.createElement("button")
+            button.innerHTML=n /*wyświetlana wartość*/
+            button.classList.add("buttonStyle")
+            button.dataset.value=n /*wartość wydobywania przy naciśnięciu*/
+            button.onclick=setValue
+            button.setAttribute("id","b"+n)
+            button.style.gridColumn=y
+            button.style.gridRow=x
+            main.appendChild(button)
+        }       
+        function addToLog(text) {
+            const l=document.getElementById("log")
+            const br = document.createElement("br"); /*stworzenie znacznika <br> */
+            const textNode = document.createTextNode(text); /*stworzenie pola z tekstem*/
+            l.appendChild(textNode);
+            l.appendChild(br);
+        }
+    </script>
+</head>
+<body onload="gen()">
+    <div id="mainWindow" class="window"> 
+        
+            <div id="main" class="grid-container"> </div> 
+            <div id="log" class="border">
+                <b>LOGS</b> <br>
+            </div>  
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id = "root">
+    </div>
+    <script type="text/babel">
+        class Counter extends React.Component {
+            state =  {
+                    ifTrue: true,
+                    counter: this.initial || 0,
+                }
+                intervalId = null;
+
+            forStart = () =>{
+                if (this.intervalId == null && !this.state.started) {
+                    this.setState({ifTrue: false, started: true}, this.startCounting)
+                }
+            }
+
+            forStop = () => {
+                if (this.intervalId !== null) {
+                    this.setState({ifTrue: true}, this.stopCounting)
+                }
+            }
+
+            startCounting = () => {
+                const delay = parseInt(this.delay) || 1000;
+                this.intervalId = setInterval (() => {
+                    this.setState((prevState) => ({
+                        counter: prevState.counter + 1}))
+                },delay);
+            }
+
+            stopCounting = () => {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
+            }
+            render() {
+                const counterStyle = {
+                    backgroundColor: 'azure',
+                    }
+                const makeItRed = {
+                    color:  "red"
+                }
+                const button1 = <button id="start" onClick={this.forStart}>Start</button>
+                const button2 = <button id="stop" onClick={this.forStop}>Stop</button>
+                const ifTrue = true;
+                return(
+                    <div>
+                        <h2 style={counterStyle}>Licznik → <span style={makeItRed}>{this.state.counter}</span>
+                        <div> {this.state.ifTrue ? button1 : button2}</div>
+                        </h2> 
+                    </div>
+            );
+            } 
+        }
+        const container = document.getElementById('root'); 
+        const root = ReactDOM.createRoot(container);       
+        root.render(<Counter name="Licznik" initial="0" delay="1000" />);    
+        </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+@media all and (max-width: 800px){
+  h1,h2{
+    color: rgb(110, 110, 110);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 36px;
+    font-family: 'Georgia', serif;
+  }
+  
+body{
+    margin: 20px;
+  }
+  
+footer{
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid rgb(110, 110, 110);
+  }     
+  
+header {
+    color: rgb(110, 110, 110);
+    border: 2px solid rgb(110, 110, 110);
+    padding: 10px;
+    height: 40px;
+    margin-bottom: 10px;
+  }     
+  
+main { 
+    border: 2px solid rgb(110, 110, 110);
+    width: auto;
+    text-transform: none;
+    padding: 10px;
+  }
+  
+nav {
+    border: 2px solid rgb(110, 110, 110);
+  }
+
+aside{
+    padding: 10px;
+    border: 2px solid rgb(110, 110, 110);
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+nav ul {
+    margin-left: 0px;
+  }
+
+blockquote{
+    font-family: 'Courier New', monospace;
+    white-space: pre-line;
+    margin: 0px;
+  }
+  
+  .azure{
+    background-color: #EFF;
+  }
+  
+  .fancy_font{
+    font-family: cursive;
+  }
+  
+  :root{
+    --text-color-initial: red;
+    --text-color-final: purple;
+  }
+  
+  .fade{
+    animation: colorChange 3s infinite alternate;
+  }
+  
+  @keyframes colorChange {
+    0% {
+      color: var(--text-color-initial);
+    }
+    100%{
+      color: var(--text-color-final);
+    }
+  }
+  /* wystarczy przypisać klasę fade do danych nagłówków w html */
+}
+@media all and (min-width: 801px){
+    h1,h2{
+        color: rgb(110, 110, 110);
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 36px;
+        font-family: 'Georgia', serif;
+      }
+      
+      body{
+        margin: 20px;
+      }
+      
+      footer{
+        margin-top: 10px;
+        padding: 10px;
+        border: 2px solid rgb(110, 110, 110);
+      }     
+      
+      header {
+        color: rgb(110, 110, 110);
+        border: 2px solid rgb(110, 110, 110);
+        padding: 10px;
+        height: 40px;
+        width: auto 90%;
+        margin-bottom: 10px;
+      }     
+      
+      main { 
+        border: 2px solid rgb(110, 110, 110);
+        margin-top: 100px;
+        width: 36%;
+        padding: 10px;
+        text-transform: none;
+      }
+      
+      nav {
+        border: 2px solid rgb(110, 110, 110);
+        width: 15%;
+        float: left;
+      }
+      
+      aside{
+        float: right;
+        border: 2px solid rgb(110, 110, 110);
+        width: 50%;
+        
+      }
+      
+      nav ul {
+        text-align: right;
+        margin-left: 0px;
+        float: right;
+      }
+      
+      blockquote{
+        font-family: 'Courier New', monospace;
+        white-space: pre-line;
+        margin: 0px;
+      }
+      
+      .azure{
+        background-color: #EFF;
+      }
+      
+      .fancy_font{
+        font-family: cursive;
+      }
+      
+      :root{
+        --text-color-initial: red;
+        --text-color-final: purple;
+      }
+      
+      .fade{
+        animation: colorChange 3s infinite alternate;
+      }
+      
+      @keyframes colorChange {
+        0% {
+          color: var(--text-color-initial);
+        }
+        100%{
+          color: var(--text-color-final);
+        }
+      }
+      /* wystarczy przypisać klasę fade do danych nagłówków w html */
+    
+}
