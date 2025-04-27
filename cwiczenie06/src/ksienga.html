@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Księga Gości</title>
+   <style>
+    .label {
+      display: block; width: 300px;
+    }
+  </style>
+    </head>
+  <body>
+    <main>
+      <h1>Nowy wpis: </h1>
+      <form method="GET" action="/submit">
+        <label for="name" >Twoje imię i nazwisko: </label>
+        <br>
+        <input name="name">
+        <br>
+        <label for="Opinion">Treść wpisu</label>
+        <br>
+        <input name="Opinion">
+        <br>
+        <input type="submit">
+      </form>  
+    </main>
+  </body>
+</html>
