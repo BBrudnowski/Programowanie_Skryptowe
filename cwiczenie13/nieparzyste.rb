@@ -1,0 +1,1 @@
+puts (1..30).lazy.select{ |x| (x - 1) % 2 == 0 }.count
