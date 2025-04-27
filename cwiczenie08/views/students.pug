@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+  body
+    h1 Baza danych studentów
+    label(for="department") Wydział:
+    select#department(name="department") 
+      option Informatyka
+    button Filtruj
+    table(border="1")
+      thead
+        tr
+          th Imię
+          th Nazwisko
+          th Wydział
+      tbody
+        each student in students
+          tr
+            td= student.name
+            td= student.surname
+            td= student.faculty

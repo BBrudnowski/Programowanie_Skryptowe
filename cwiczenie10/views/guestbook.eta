@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Księga Gości</title>
+</head>
+<body>
+  <h1>Księga Gości</h1>
+
+  <!-- Formularz dodawania wpisu -->
+  <form action="/" method="POST">
+    <label for="name">Imię:</label>
+    <input type="text" name="name" id="name" placeholder="Twoje imię" />
+    <br />
+    <label for="message">Wiadomość:</label>
+    <textarea name="message" id="message" rows="4" placeholder="Twoja wiadomość"></textarea>
+    <br />
+    <button type="submit">Dodaj wpis</button>
+  </form>
+
+  <!-- Wyświetlenie istniejących wpisów -->
+  <h2>Wpisy:</h2>
+  <ul>
+    <% entries.forEach((entry) => { %>
+      <li>
+        <strong><%= entry.name %></strong> napisał/a:
+        <p><%= entry.message %></p>
+        <small><%= entry.date.toLocaleString() %></small>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

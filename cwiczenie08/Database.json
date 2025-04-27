@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Jan",
+        "surname": "Kowalski",
+        "faculty": "WI"
+    },
+
+    {
+        "id": 2,
+        "name": "Stanisław",
+        "surname": "Wokulski",
+        "faculty": "WIET"
+    },
+    {
+        "id": 3,
+        "name": "Izabela",
+        "surname": "Łęcka",
+        "faculty": "WIET"
+    },
+    {
+        "id": 4,
+        "name": "Ignacy",
+        "surname": "Rzecki",
+        "faculty": "WI"
+    }
+]

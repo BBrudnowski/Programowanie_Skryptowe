@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= title
+    script.
+      function redirectWithInput(){
+        const faculty = document.getElementById('facultyInput').value;
+        const url = `http://127.0.0.1:8000/${faculty}`; //- teorytycznie przeładowuje asynchronicznie
+        window.location.href = url
+      }
+  body
+    h1 Baza danych studentów
+    div(style="display: flex; align-items: center; gap: 10px;")
+      label(for="facultyInput") Wydział:
+      input#facultyInput(type="text" name="wydzial" placeholder="Wpisz wydział")
+      button#filtruj(onclick="redirectWithInput()" type="button") Filtruj
+    table(border="1")
+      thead
+        tr
+          th Imię
+          th Nazwisko
+          th Wydział
+      tbody
+        each student in students
+          tr
+            td= student.name
+            td= student.surname
+            td= student.faculty
